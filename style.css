@@ -1,0 +1,29 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+.card{
+    background-color: white;
+    color: black;
+}
+
+
+#x-box {
+    margin-left: 20%;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background-color: green;
+    background:none;
+}
+
+#x-box-cont {
+    font-size: 30px;
+    padding-left: 50px;
+}
+
+
+
+#labels{
+    display: block;
+    margin: 10px;
+}
