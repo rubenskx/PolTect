@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "PolTect",
+  "version": "1.0",
+"host_permissions": [
+    "<all_urls>"
+  ],
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "PolTect"
+  },
+  "icons": {
+    "48": "icon.png"
+  }
+}
