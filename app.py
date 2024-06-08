@@ -1,9 +1,14 @@
-from huggingface_hub.inference_api import InferenceApi
 from flask import Flask, request, jsonify
+from huggingface_hub.inference_api import InferenceApi
+from dotenv import load_dotenv
+import os
+load_dotenv()
 app = Flask(__name__)
 
 # Load the saved model and tokenizer
 # Load model directly
+
+api_token = os.getenv("TOKEN")
 
 
 @app.route('/predict', methods=['POST'])
@@ -20,7 +25,7 @@ def predict():
         input_text = data['text']
         print(input_text)
         inference = InferenceApi(repo_id="rubenskx/PolTect",
-                                 token='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')
+                                 token=api_token)
 
         result = inference(input_text)
         print(result[0][0], result[0][1], result[0][2])
