@@ -1,8 +1,6 @@
 from flask import Flask, request, jsonify
 from huggingface_hub.inference_api import InferenceApi
-from dotenv import load_dotenv
 import os
-load_dotenv()
 app = Flask(__name__)
 
 # Load the saved model and tokenizer
@@ -23,12 +21,10 @@ def predict():
 
         # Get text data from the JSON data
         input_text = data['text']
-        print(input_text)
         inference = InferenceApi(repo_id="rubenskx/PolTect",
                                  token=api_token)
 
         result = inference(input_text)
-        print(result[0][0], result[0][1], result[0][2])
         map = {'LABEL_0': 'left', 'LABEL_1': 'center', 'LABEL_2': 'right'}
         return jsonify({
             map[result[0][0]['label']]: result[0][0]['score'],
@@ -42,4 +38,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(debug=True)

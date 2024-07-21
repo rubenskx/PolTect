@@ -13,7 +13,7 @@ const injectContentScript = async (tab) => {
 };
 
 const makeApiRequest = async (postData) => {
-  const link = "http://127.0.0.1:5000/predict";
+  const link = "https://rubenskx.pythonanywhere.com/predict";
   try {
     const response = await fetch(link, {
       method: "POST",
